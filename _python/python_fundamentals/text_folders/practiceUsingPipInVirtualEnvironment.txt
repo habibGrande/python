@@ -1,0 +1,32 @@
+-1 pip list
+
+is a command that shows the version of the pip we have and if there is any 
+new release of pip available 
+
+2-deactivate
+
+this command deativate the pip we have
+
+3- pip3 list 
+ same as pip list it shows the pip version we have
+
+4-pip install Django==2.2.4
+
+downloads Djano using the cmd
+
+5-pip freeze
+
+shows the packges we installed via pip
+
+6- pip freeze > requirements.txt
+
+creates a text file and inside it all the packges we installed via pip
+
+7-pip uninstall Django
+
+removes the Django packge we have 
+
+8-pip show Django
+
+shows details about Djano like 
+Name, Version, Summary, Home-page, Author, Author-eamil, License, Location, Requires
