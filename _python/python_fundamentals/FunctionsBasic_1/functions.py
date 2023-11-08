@@ -1,12 +1,5 @@
-#15
-def a():
-    print(1)
-    x = b()
-    print(x)
-    return 10
-def b():
-    print(3)
-    return 5
-y = a()
-print(y)
+# traditional
+stacks=5
+#
+print('Coding Dojo' if stacks >= 3 else 'You are not Coding Dojo!')
 
