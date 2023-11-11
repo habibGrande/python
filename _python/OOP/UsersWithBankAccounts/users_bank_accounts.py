@@ -21,25 +21,31 @@ class BankAccount:
 
 
 class User:
-
-    def make_withdrawal(self, amount):
-        self.account_balance -= amount
     
-    def __init__(self , user_name , account , account_balance):
+    def __init__(self , user_name , email ):
         self.user_name = user_name
-        self.account = account
-        self.account_balance = account_balance
+        self.email = email
+        self.account = BankAccount(int_rate=0.02, balance=0)
 
     def Deposit(self,amount): 
-        self.account_balance += amount
+        self.account.deposit(amount)
     
     def transfer_money(self, other_user, amount):
-        self.make_withdrawal(amount)
-        other_user.Deposit(amount) 
+        self.account.make_withdrawal(amount)
+        other_user.account.Deposit(amount) 
+       
+    def make_withdrawal(self, amount):
+        self.account.withdraw(amount)
 
     def disply_user_balance(self):
-        print(self.account_balance)  
-        
+        print(f"User: {self.user_name}, Balance: {self.account.display_account_info()}")     
+    
+
+    
+       
+
+habibUser = User('habib','ahmad@axsos.com')
+habibUser.Deposit(56000)
+habibUser.disply_user_balance()
 
 
-Newuser = User('habib','ahmad@axsos.com',50000)
