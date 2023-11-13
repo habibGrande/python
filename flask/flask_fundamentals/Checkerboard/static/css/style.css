@@ -1,0 +1,33 @@
+.allRows{
+    display: flex;
+    
+}
+
+.black{
+    background-color: black;
+    width: 60px;
+    height: 60px;
+    display: inline-block;
+    
+    
+}
+.white{
+    background-color: red;
+    width: 60px;
+    height: 60px;
+    display: inline-block;
+   
+}
+
+
+.color0{
+    background-color: red;
+    width: 60px;
+    height: 60px;
+}
+.color1{
+    background-color: black;
+    width: 60px;
+    height: 60px;
+}
+
