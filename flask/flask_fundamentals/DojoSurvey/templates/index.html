@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="main">
+    <form action="/result" method="post">
+        <fieldset class="main_section">
+            <div class="userName">
+                <label>Your Name :</label>
+                <input type="text" name="userName" id="userNameText">
+            </div>
+            <div class="Location">
+                <label id="labelLocation" >Dojo Location :</label>
+                <select name="dojoLocations" id="select_1">
+                    <option value="Palestine">Palestine</option>
+                    <option value="Gremany">Gremany</option>
+                    <option value="Jordan">Jordan</option>
+                </select>
+            </div>
+            <div class="Language">
+                <label class="languageLable" >Favoritet Language :</label>
+                <select name="FavoritetLanguage" id="select_2">
+                    <option value="Arabic">Arabic</option>
+                    <option value="English">English</option>
+                    <option value="spanish">spanish</option>
+                </select>
+            </div>
+            <div class="Gender">
+                <label >Gender</label>
+                <div class="Gender_names">
+                    <input type="radio" id="Gender1" name="Gender" value="Female">
+                    <label for="Gender1">Female</label><br>
+                    <input type="radio" id="Gender2" name="Gender" value="Male">
+                    <label for="Gender2">Male</label><br>  
+                    <input type="radio" id="Gender3" name="Gender" value="Other">
+                    <label for="Gender3">Other</label><br><br>
+                 </div>
+            </div>
+            <div class="Transport">
+                <label>Transport</label>
+                <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                <label for="vehicle1"> I have a bike</label><br>
+                <input type="checkbox" id="vehicle2" name="vehicle1" value="Car">
+                <label for="vehicle2"> I have a car</label><br>
+                <input type="checkbox" id="vehicle3" name="vehicle1" value="walk">
+                <label for="vehicle3"> I can walk</label><br><br>
+            </div>
+            <div>
+                <label >Comment (optional)</label>
+                <textarea name="comment" id="" cols="30" rows="5"></textarea>
+            </div>
+           <div class="SubmitbtnDiv">
+            <button class="Submitbtn">Submit</button>
+           </div> 
+        </fieldset>
+       </form>
+</body>
+</html>

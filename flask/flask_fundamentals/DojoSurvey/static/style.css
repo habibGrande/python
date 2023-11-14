@@ -1,0 +1,93 @@
+
+.main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main_section{
+    margin-top: 50px;
+    width: 500px;
+}
+
+.userName{
+    display: flex;
+    justify-content: space-around;
+    padding: 5px;
+    margin-top: 10px;
+}
+#userNameText{
+    width: 185px;
+}
+.Location{
+    display: flex;
+}
+#labelLocation{
+    margin-left: 55px;
+    padding: 5px;
+}
+
+
+#select_1{
+    width: 194px;
+    margin-left: 82px;
+}
+#select_2{
+    
+    width: 194px;
+    margin-left: 51px;
+}
+
+.Language{
+    display: flex;
+    margin-top: 5px;
+}
+.languageLable{
+    margin-left: 55px;
+    padding: 5px;
+   
+}
+
+.Gender{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.Gender_names{
+    display: flex;
+    align-items: center;
+}
+.Transport{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.Transport_meth{
+    display: flex;
+    align-items: center;
+}
+textarea{
+   width:481px;
+   height: 127px;
+}  
+
+.Submitbtn{
+    width: 85px;
+    height: 25px;
+    background-color: #76a5af;
+    color: white;
+  
+}
+
+.SubmitbtnDiv{
+    display: flex;
+    justify-content:flex-end;
+    align-items:  center;
+}
+/* show page css */
+.userNameShow{
+    display: flex;
+    justify-content: space-around;
+    align-items:  center;
+
+}
