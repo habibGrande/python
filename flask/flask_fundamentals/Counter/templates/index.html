@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="align-items: center; ">
+    <h1 style="justify-content: center; display: flex;">Counter</h1>
+    <div style="justify-content: center; display: flex;">
+        <h3 >{{session['counter']}} times</h3>
+    </div>
+    <div style="display: flex;align-items: center;justify-content: center;">
+        <form action="/addTwo" method="post">
+        <button type="submit" style="background-color: cornflowerblue; width: 125px;height: 25px; color: white; margin: 5px; box-shadow: 1px 2px 1px  black;">Add Two visits</button>
+        </form>
+        <form action="/remove" method="post">
+            <button style="background-color: cornflowerblue; width: 85px;height: 25px; color: white; margin: 5px; box-shadow: 1px 2px 1px  black;">Reset</button>
+        </form>
+    </div>
+<!-- 
+    <form action="/form" method="post">
+        <label>HTML</label>
+        {% for x in range(0, 5) %}
+            <p>{{ session['counter'] }}</p>
+        {% endfor %}
+    </form> -->
+
+    <script type="text/javascript" src="{{ url_for('static', filename='scripts.js') }}"></script>
+</body>
+</html>
