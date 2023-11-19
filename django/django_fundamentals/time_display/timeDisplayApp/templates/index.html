@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=S, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">  
+    <title>time display</title>
+</head>
+<body>
+    <h1>this page displays the current time </h1>
+    
+    <p>this is current time as the device {{ time }}</p>
+    <p>this is the GMT {{ time1 }}</p>
+    
+</body>
+</html>

@@ -1,0 +1,13 @@
+h1{
+    text-align: center;
+    border: 2px solid black;
+    color: darkblue;
+}
+
+p{
+    text-align: center;
+    background-color: rgb(3, 0, 0);
+    color: gold;
+    font-size: 25px;
+
+}
