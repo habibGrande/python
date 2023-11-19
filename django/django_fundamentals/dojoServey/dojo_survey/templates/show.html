@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}	
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body class="main">
+    <fieldset class="main_section">
+        <h2>submitted info</h2>
+        <div class="userNameShow">
+            <div>Name: </div>
+            <div> {{ show_name }}</div>
+        </div>
+        <div class="userNameShow">
+            <p>Dojo Location:</p>
+            <p>{{ show_Location }}</p>
+        </div>
+        <div class="userNameShow">
+            <p>Favoritet Language :</p>
+            <p>{{show_language}}</p>
+        </div>
+        <div class="userNameShow">
+            <p>Gender:</p>
+            <p>{{show_Gender}}</p>
+        </div>
+        <div class="userNameShow">
+            <p>Transport:</p>
+            <p>{{vehicle}}</p>
+        </div>
+        <div class="userNameShow">
+            <p>Comment</p>
+            <p>{{show_vehicle}}</p>
+        </div>
+        <div class="SubmitbtnDiv">
+            <button class="Submitbtn">Go back</button>
+        </div> 
+  
+    </fieldset>
+</body>
+</html>
