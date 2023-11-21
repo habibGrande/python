@@ -7,28 +7,22 @@ def root(request):
     return render(request,'index.html')
 
 def answers(request):
-    randomInt =  request.session['randomINT']
-    randomIntAsInt = int(randomInt)
-    divColor = ''
-    user_input = request.POST['number']
-    user_inputInt = int(user_input)
-    if user_inputInt:
-        if user_inputInt == randomIntAsInt:
-            divColor = 'gold'
-        elif user_inputInt < randomIntAsInt:
-            divColor ='red'
-        elif user_inputInt > randomIntAsInt:
-            divColor = 'red_low'
+    input =  int(request.POST['number'])
+    
+    if input == request.session['randomINT']:
+        text = f"{request.session['randomINT']} was the number"
+        color ='gold'
+    elif input < request.session['randomINT']:
+            text = f"{input} too low!"
+            color = 'red'
+    elif input >  request.session['randomINT']:
+            text = f"{input} too high!"
+            color = 'red'
+    context = {
+        'color' : color,
+        'text' : text ,
 
-    print(user_input)
-    print(divColor)
-
-    context= {
-        'status' : divColor,
-        'user_input' : user_inputInt,
-        'random_int' : randomIntAsInt
-    }
-    print(randomInt)
+   }
     return render(request,'index.html', context)
    
 
