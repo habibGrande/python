@@ -1,0 +1,11 @@
+.top_nav{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+button{
+    width: 65px;
+    height: 25px; 
+    background-color: aqua;
+    border: 0px 1px 1px solid black;
+}
