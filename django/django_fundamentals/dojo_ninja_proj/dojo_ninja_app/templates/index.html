@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="main-section">
+        <div class="Dojo-section">
+            <h1>Add a Dojo</h1>
+            <form action="/createDojo" method="post">
+                {% csrf_token %}
+                <div class="content">
+                    <label>Name</label>
+                    <input type="text" name="name" class="textBoxs">
+                </div>
+                <div class="content">
+                    <label for="lname">City</label>
+                    <input type="text" name="city" class="textBoxs">
+                </div>
+                <div class="content">
+                    <label for="lname">State</label>
+                    <input type="text" name="state" class="textBoxs">
+                </div>
+                <div class="btnContainer">
+                    <button>Add</button>
+                </div>
+            </form>
+        </div>
+        <div class="ninja-section">
+            <h1>Add a Ninja</h1>
+            <form action="/createNinja"  method="post">
+                {% csrf_token %}
+                <div class="content">
+                    <label>First Name</label>
+                    <input type="text" name="first_name" class="textBoxs">
+                </div>
+                <div class="content">
+                    <label>Last Name</label>
+                    <input type="text" name="last_name" class="textBoxs">
+                </div>
+                <div class="content">
+                    <label>Dojo</label>
+                     <select name="state" >
+                        {% for i in DojoStates %}
+                        <option value="{{ i.id }}">{{ i.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="btnContainer">
+                     <button>Add</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="line"></div>
+    <div>
+        <h1>All the Dojos</h1>
+        <div class="dojos">
+            <div>
+            {% for  i in DojoStates %}
+            <h3> Ninjas at the {{i.name}} Dojo</h3>
+            <ul>
+                {% for j in i.dojos.all %}
+                <li>
+                      {{j.first_name}} {{j.last_name}}  
+                </li>
+                {% endfor %}
+            </ul>
+            {% endfor %}
+        </div>
+    </div>
+    </div>
+    
+</body>
+</html>
