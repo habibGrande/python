@@ -11,18 +11,19 @@ def answers(request):
     
     if input == request.session['randomINT']:
         text = f"{request.session['randomINT']} was the number"
-        color ='gold'
+        color ='#009e0f'
     elif input < request.session['randomINT']:
-            text = f"{input} too low!"
+            text = "too low!"
             color = 'red'
     elif input >  request.session['randomINT']:
-            text = f"{input} too high!"
+            text = "too high!"
             color = 'red'
     context = {
         'color' : color,
         'text' : text ,
 
    }
+    print(request.session['randomINT'])
     return render(request,'index.html', context)
    
 

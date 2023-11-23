@@ -1,0 +1,48 @@
+.yourGold{
+    width: 80px;
+    height: 25px;
+    border: 2px solid black;
+    margin-left: 20px;
+}
+.content{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.containers{
+    width: 280px;
+    height: 280px;
+    border: 2px solid black;
+
+}
+.navBar{
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+}
+.containterContent{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.amount{
+    width: 800px;
+    border: 2px solid black;
+    margin-left: 15px;
+}
+.header{
+    margin-left: 15px;
+}
+
+.buttons{
+    width: 90px;
+    height: 25px;
+    box-shadow: 2px 1px 1px black;
+    border-radius: 0px;
+    background-color: aqua;
+    font-size: 15px;
+}

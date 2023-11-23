@@ -13,18 +13,27 @@
         <h3 class="top_nav" >I am thinking of a number between 1 and 100</h3>
         <h3 class="top_nav">take a guess</h3>
     </div>
+    {%if text%}
     <div class="top_nav">
         <div style="background-color:{{color}}; border: 2px solid black; width: 300px; height: 300px; display: flex; align-items: center;justify-content: center;" >
             <p>{{text}}</p>
+            {%if color == '#009e0f' %}
+            <form action="/">
+            <button  style=" width: 80px;height: 25px; background-color: aqua;border: 0px 1px 1px solid black; margin-left: 50px;">play again</button>
+            </form>
+            {% endif %}
         </div>
+    {% endif %}
     </div>
 
         <div style="justify-content: center ;align-items: center; margin-left: 42%;margin-top: 10px;">
             <form action="/answer" method='post'>
                 {% csrf_token %}
                 <input type="text" name="number" style=" display: flex;align-items: center;justify-content: center;padding: 5px;margin: 5px;" >
+                {%if color != '#009e0f'  %}
                 <button style=" width: 80px;height: 25px; background-color: aqua;border: 0px 1px 1px solid black; margin-left: 50px;">sumbit</button>
-        </div>
+                {% endif %}
+            </div>
 
 </body>
 </html>
