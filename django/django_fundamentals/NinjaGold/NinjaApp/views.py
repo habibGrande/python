@@ -1,33 +1,40 @@
 from django.shortcuts import render , redirect
 import random
 # Create your views here.
-def root (request):
-    return render(request,'index.html')
+def root (request): 
+    yourgold = 0
+    counter = request.session['yourgold']
+    if counter:
+        yourgold += counter
+    else:
+        yourgold = 0
+    context ={
+        'yourGold' : yourgold
+    }
+    
+    print(yourgold)
+    return render(request,'index.html',context)
 
 def process_money(request):
-    # if request.method == 'POST':
-    #     farmObj = request.POST('farm')
-    # farmObj =
-    # caveObj =  
-    # houseObj =  
-    # questObj = 
-    # print (farmObj)
-    if request.POST['Sfarm']== 'farm':
+    counter = 0
+    gold = 0
+    if request.POST['hiddenValue']== 'farm':
         farmNumber =  random.randint(10,20)
+        gold += farmNumber
 
-    elif  request.POST['Lcave'] == 'cave':
+    elif  request.POST['hiddenValue'] == 'cave':
         caveNumber = random.randint(10,20)
+        gold += caveNumber
 
-    elif request.POST['Mhouse'] == "house" :
+    elif request.POST['hiddenValue'] == "house" :
         houseNumber = random.randint(10,20)
+        gold += houseNumber
 
-    elif request.POST['Aquest'] == 'quest':
+    elif request.POST['hiddenValue'] == 'quest':
         questNumber = random.randint(10,20)
+        gold += questNumber
     
-
-    print (caveNumber)
-    print (houseNumber)
-    print (questNumber)
+    request.session['yourgold'] = gold
 
     return  redirect ('/')
 

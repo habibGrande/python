@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ninja Gold</title>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'mystyle.css' %}">
 </head>
 <body>
     <div class="navBar">
-        <h2>Your Gold: </h2>
-        <div class="yourGold"></div>
+        <h2>Your Gold:  </h2>
+        <div class="yourGold">{{yourGold}}</div>
     </div>
     <div class="content">
         <div class="containers"> 
@@ -18,7 +18,7 @@
             <h2 class="containterContent">(earns 10-20 gold)</h2>
             <form action="/process_money" class="containterContent" method="post">
                 {% csrf_token %}
-                <input type="hidden" name="Sfarm" value="farm">
+                <input type="hidden" name="hiddenValue" value="farm">
                 <button type="submit" class="buttons" value="farm" >Find Gold!</button>
             </form>
         </div>
@@ -27,7 +27,7 @@
             <h2 class="containterContent">(earns 10-20 gold)</h2>
             <form action="/process_money" class="containterContent" method="post">
                 {% csrf_token %}
-                <input type="hidden" name="Lcave" value="cave">
+                <input type="hidden" name="hiddenValue" value="cave">
                 <button type="submit" class="buttons" value="cave">Find Gold!</button>
             </form>
         </div>
@@ -36,7 +36,7 @@
             <h2 class="containterContent">(earns 10-20 gold)</h2>
             <form action="/process_money" class="containterContent" method="post">
                 {% csrf_token %}
-                <input type="hidden" name="Mhouse" value="house">
+                <input type="hidden" name="hiddenValue" value="house">
                 <button type="submit" class="buttons" value="house" >Find Gold!</button>
             </form>
         </div>
@@ -45,7 +45,7 @@
             <h2 class="containterContent">(earns 0-50 gold)</h2>
             <form action="/process_money" class="containterContent" method="post">
                 {% csrf_token %}
-                <input type="hidden" name="Aquest" value="quest">
+                <input type="hidden" name="hiddenValue" value="quest">
                 <button type="hidden" class="buttons" value="quest" >Find Gold!</button>
             </form>
         </div>
@@ -54,6 +54,7 @@
     <div>
         <form action="/process_money">
             <textarea name="" rows="4" cols="50" class="amount">
+                
             </textarea>
         </form>
     </div>
