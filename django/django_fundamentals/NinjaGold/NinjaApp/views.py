@@ -2,39 +2,52 @@ from django.shortcuts import render , redirect
 import random
 # Create your views here.
 def root (request): 
-    yourgold = 0
-    counter = request.session['yourgold']
-    if counter:
-        yourgold += counter
-    else:
-        yourgold = 0
-    context ={
-        'yourGold' : yourgold
-    }
+    if 'gold' not in request.session:
+        request.session['gold']=0
+    if 'text' not in request.session:
+        request.session['text'] = []
     
-    print(yourgold)
-    return render(request,'index.html',context)
+    if 'color' not in request.session:
+        request.session['color']=''
+
+    return render(request,'index.html')
 
 def process_money(request):
-    counter = 0
-    gold = 0
+    gold = random.randint(10,20)
+    request.session['gold'] += gold
+    
+    
+
     if request.POST['hiddenValue']== 'farm':
         farmNumber =  random.randint(10,20)
         gold += farmNumber
-
+        request.session['text'].append(f"you entered a farm {gold} gold.")
+        request.session['color']='green'
+        return  redirect ('/')
     elif  request.POST['hiddenValue'] == 'cave':
         caveNumber = random.randint(10,20)
         gold += caveNumber
-
+        request.session['text'].append(f"you entered a house {gold} gold.")
+        request.session['color']='green'
+        return  redirect ('/')  
     elif request.POST['hiddenValue'] == "house" :
         houseNumber = random.randint(10,20)
         gold += houseNumber
+        request.session['text'].append(f"you entered a house {gold} gold.")
+        request.session['color']='green'
+        return  redirect ('/')
 
     elif request.POST['hiddenValue'] == 'quest':
-        questNumber = random.randint(10,20)
+        questNumber = random.randint(-50,20)
         gold += questNumber
+        if gold > 0:
+            request.session['text'].append(f"You entered a quest and earned {gold} gold")
+            request.session['color']='green'
+        else:
+            request.session['text'].append(f"You failed a quest and lost {gold} gold")
+            request.session['color']='red'
+        return  redirect ('/')
     
-    request.session['yourgold'] = gold
 
     return  redirect ('/')
 

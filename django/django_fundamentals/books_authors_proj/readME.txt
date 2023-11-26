@@ -1,4 +1,4 @@
-1-Create the Book class model
+1-Create the Book class model/
 Create 5 books with the following names: C Sharp, Java, Python, PHP, Ruby:
 
 	Book.objects.create(title='c',desc='this is a book')

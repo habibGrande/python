@@ -10,7 +10,7 @@
 <body>
     <div class="navBar">
         <h2>Your Gold:  </h2>
-        <div class="yourGold">{{yourGold}}</div>
+        <div class="yourGold">{{request.session.gold}}</div>
     </div>
     <div class="content">
         <div class="containers"> 
@@ -53,8 +53,10 @@
     <h2 class="header">Activities:</h2>
     <div>
         <form action="/process_money">
-            <textarea name="" rows="4" cols="50" class="amount">
-                
+            <textarea name="" rows="4" cols="50" class="amount" style="color: {{request.session.color}};">
+               {% for text in request.session.text %}
+                    {{text}} 
+               {%endfor%}
             </textarea>
         </form>
     </div>
