@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Create a Show </title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/Mystyles.css' %}">
+</head>
+<body>
+    <div >
+        <div class="showForms">
+            <div><h1>TV Show {{id}}</h1></div>
+            <div id="link-back">
+                <a href="/shows" >Go Back</a>
+            </div>
+        </div>
+        <div>
+            <div class="showForms">
+                <p>Title: {{title}} </p>
+            </div>
+            <div class="showForms">
+                <p> Network: {{network}}</p>
+            </div>
+            <div class="showForms">
+                <p>Release date: {{release_Date}}</p>
+            </div>
+            <div class="showForms"> Description: {{desc}}</div>
+        </div>
+        <div  class="showForms">
+            <p> Last Updated: {{updated}}</p>
+        </div>
+            <div class="showForms">
+                <a href="/shows/{{id}}/edit">Edit</a> | <a href="/show/{{id}}/destroy">Delete</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
