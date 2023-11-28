@@ -21,6 +21,7 @@
                 <label class="move-title" >Title</label>
                 <input type="text" name="title" class="title-text">
             </div>
+            
             <div>
                 <div class='add-title'>
                     <label class="Network">Network</label>
@@ -31,16 +32,35 @@
                      <input type="text" name="network" id="network">
                     <input type="date" name="relDate" id="relDate">
                 </div>
+                        {% if messages %}
+            <ul class="messages">    
+                {% for message in messages %}  
+                    {% if message.tags == 'description' %}  
+                        <li>{{ message }}</li>    
+                    {% endif %}
+                    {% endfor %}
+                    </ul>
+                    {% endif %}
+            
                 <div class="Description">
                     <label>Description</label>
                 </div>
                 <div class="lable-input">
                     <input type="text" name="desc" id="text-area">
                 </div>
+                {% if messages %}
+                <ul class="messages">    
+                    {% for message in messages %}  
+                    {% if message.tags %}  
+                        <li style="list-style: none; margin-left: 35%;">{{ message }}</li>    
+                        {% endif %}
+                        {% endfor %}
+                </ul>
+                {% endif %}
                 <div class="btn-container">
                     <button id="create-btn">Create</button>
                 </div>
-         
+               
             </div>
         </form>
     </div>

@@ -42,6 +42,15 @@
                 <div class="lable-input">
                     <input type="text" name="desc" id="text-area" value="{{desc}}" class="textBox">
                 </div>
+                {% if messages %}
+                <ul class="messages">    
+                    {% for message in messages %}  
+                    {% if message.tags %}  
+                        <li style="list-style: none; margin-left: 35%;">{{ message }}</li>    
+                        {% endif %}
+                        {% endfor %}
+                </ul>
+                {% endif %}
                 <div  class="btn-container">
                     <button id="update-btn">Update</button>
                 </div>

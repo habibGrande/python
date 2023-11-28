@@ -1,4 +1,5 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect 
+from django.contrib import messages
 from .models import *
 # Create your views here.
 
@@ -13,7 +14,12 @@ def new(request):
     return render(request,'create.html')
 
 def create(request):
-    if request.method == 'POST': 
+    errors = Shows.objects.shows_validator(request.POST)
+    if len(errors) > 0:
+        for key, value in errors.items():
+            messages.error(request, value)
+        return redirect('/shows/new')
+    elif request.method == 'POST': 
         title = request.POST['title']
         net = request.POST['network']
         date = request.POST['relDate']
@@ -46,7 +52,12 @@ def editPage(request,id):
     return render(request,'edit.html',context)
 
 def edit(request,id):
-    if request.method == 'POST': 
+    errors = Shows.objects.shows_validator(request.POST)
+    if len(errors) > 0:
+        for key, value in errors.items():
+            messages.error(request, value)
+        return redirect('/shows/new')
+    elif request.method == 'POST': 
         title = request.POST['title']
         net = request.POST['network']
         date = request.POST['relDate']
