@@ -17,7 +17,7 @@ def create(request):
     errors = Shows.objects.shows_validator(request.POST)
     if len(errors) > 0:
         for key, value in errors.items():
-            messages.error(request, value)
+            messages.error(request,value,extra_tags=key) 
         return redirect('/shows/new')
     elif request.method == 'POST': 
         title = request.POST['title']
@@ -54,9 +54,10 @@ def editPage(request,id):
 def edit(request,id):
     errors = Shows.objects.shows_validator(request.POST)
     if len(errors) > 0:
+        
         for key, value in errors.items():
-            messages.error(request, value)
-        return redirect('/shows/new')
+            messages.error(request,value,extra_tags=key)
+        return redirect(f'/shows/{id}/edit')
     elif request.method == 'POST': 
         title = request.POST['title']
         net = request.POST['network']

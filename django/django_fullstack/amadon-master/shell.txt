@@ -1,0 +1,3 @@
+first_prod = Product.objects.create(description="T-shart",price="19.99")
+sec_prod = Product.objects.create(description="Pants",price="39.99")
+third_prod = Product.objects.create(description="cap",price="59.99")

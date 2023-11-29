@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div style="margin-left: 6%;">
+        <h1>{{first_name}} {{last_name}}</h1>
+        <div> 
+            <h3>ID: {{id}} </h3>
+        </div>
+        <div style="display: flex;">
+            <div>
+                <h3>Note </h3>
+            </div>
+            <div style="margin-left: 2%; margin-top: 5px;">
+                <p>{{note}}</p>
+            </div>
+        </div>
+    </div>
+    <div style="margin-left: 6%;">
+        <form action="">
+            <h3>Authors</h3>
+        <select style="width: 150px; height: 25px; border: 1.5px solid black;border-radius: 0%;">
+            
+            <option value="{{book.title}}"></option>
+           
+        </select>
+          <button style="width: 65px; height: 25px;border-radius: 0%; box-shadow: 2px 2px 1px black; margin-top: 20px;margin-left: 20px;">Add</button>
+        </form>
+        
+          
+    </div>
+</body>
+</html>

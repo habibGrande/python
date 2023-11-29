@@ -3,28 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Books</title>
+    <style>
+        table, td, th {  
+          border: 1px solid #ddd;
+          text-align: left;
+          margin-top: 20px;
+        }
+        
+        table {
+          border-collapse: collapse;
+          width: 25%;
+        }
+        
+        th, td {
+          padding: 15px;
+        }
+        .comtainer{
+            display: flex;
+            justify-content: space-around;
+        }
+        </style>
+        </head>
 </head>
 <body>
-    <div>
+    <div class="comtainer">
         <div>
             <form action="/process" method="post">
             {% csrf_token %}
             <h1>Add a Book</h1>
-            <div>
+            <div style="display: flex;">
                 <p>
                     title
                 </p>
-                <input type="text" name="title">
+                <input type="text" name="title" style="margin-top: 22px;margin-left: 52.5px;width: 150px; height: 25px; border: 1.5px solid black;border-radius: 0%;">
             </div>
-            <div>
+            <div style="display: flex;">
                 <p>
                     Description
                 </p>
-                <input type="text" name="description">
+                <input type="text" name="description"  style="margin-top: 22px;margin-left: 6px; width: 150px; height: 40px; border: 1.5px solid black;border-radius: 0%;">
             </div>
             <div>
-                <button>Add</button>
+                <button style="width: 65px; height: 25px;border-radius: 0%; box-shadow: 2px 2px 1px black; margin-top: 20px;margin-left: 80px;">Add</button>
             </div>
             </form>
         </div>
@@ -38,6 +59,7 @@
             <tr>
                 <td>{{book.id}}</td>
                 <td>{{book.title}}</td>
+                <td><a href="/books/{{book.id}}">View</a></td>
             </tr>
             {% endfor %}
         </table>

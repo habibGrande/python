@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books</title>
+    <style>
+        table, td, th {  
+          border: 1px solid #ddd;
+          text-align: left;
+          margin-top: 20px;
+        }
+        
+        table {
+          border-collapse: collapse;
+          width: 25%;
+        }
+        
+        th, td {
+          padding: 15px;
+        }
+        .comtainer{
+            display: flex;
+            justify-content: space-around;
+        }
+        </style>
+        </head>
+</head>
+<body>
+    <div class="comtainer">
+        <div>
+            <form action="/author/proccess" method="post">
+            {% csrf_token %}
+            <h1>Add an Author</h1>
+            <div style="display: flex;">
+                <p>
+                    First Name: 
+                </p>
+                <input type="text" name="first_name" style="margin-top: 22px;margin-left: 52.5px;width: 150px; height: 25px; border: 1.5px solid black;border-radius: 0%;">
+            </div>
+            <div style="display: flex;">
+                <p>
+                    Last Name: 
+                </p>
+                <input type="text" name="last_name" style="margin-top: 22px;margin-left: 52.5px;width: 150px; height: 25px; border: 1.5px solid black;border-radius: 0%;">
+            </div>
+            <div style="display: flex;">
+                <p>
+                    Note: 
+                </p>
+                <input type="text" name="note"  style="margin-top: 22px;margin-left: 90px; width: 150px; height: 40px; border: 1.5px solid black;border-radius: 0%;">
+            </div>
+            <div>
+                <button style="width: 65px; height: 25px;border-radius: 0%; box-shadow: 2px 2px 1px black; margin-top: 20px;margin-left: 125px;">Add</button>
+            </div>
+            </form>
+        </div>
+        <table class="table table-striped">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Action</th>
+            </tr>
+            {%for author in authors %}
+            <tr>
+                <td>{{author.id}}</td>
+                <td>{{author.first_name}} {{author.last_name}}</td>
+                <td><a href="/author/{{author.id}}">View</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    
+
+    </div>
+</body>
+</html>

@@ -34,18 +34,25 @@
                 <div class="lable-input" >
                     <input type="text" name="network" id="network" value="{{network}}">
                     <input type="date" name="relDate" value="{{release_Date}}" id="relDate">
+                    {% if messages %}
+                  
+                    {% for message in messages %}  
+                    {% if message.extra_tags == 'network' %}  
+                        <p >{{ message }}</p>    
+                        {% endif %}
+                        {% endfor %}
+                {% endif %}
                 </div>
                 <div class="Description">
                     <label>Description</label>
                 </div>
-               
                 <div class="lable-input">
                     <input type="text" name="desc" id="text-area" value="{{desc}}" class="textBox">
                 </div>
                 {% if messages %}
                 <ul class="messages">    
                     {% for message in messages %}  
-                    {% if message.tags %}  
+                    {% if message.value == 'network' %}  
                         <li style="list-style: none; margin-left: 35%;">{{ message }}</li>    
                         {% endif %}
                         {% endfor %}
