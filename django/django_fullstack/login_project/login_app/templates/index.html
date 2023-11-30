@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div style="display: flex; justify-content: space-around;">
+        <div>
+            <div>
+                <h1>Registration</h1>
+            </div>
+            <form action="" method="post">
+                {% csrf_token %}
+                <div>
+                    <label for="">First Name</label>
+                    <input type="text" name="first_name" id="">
+                </div>
+                <div>
+                    <label for="">Last Name</label>
+                    <input type="text" name="last_name" id="">
+                </div>
+                <div>
+                    <label for="">Email</label>
+                    <input type="text" name="email" id="">
+                </div>
+                <div>
+                    <label for="">Password</label>
+                    <input type="Password" name="password" id="">
+                </div>
+                <div>
+                    <label for="">Confirm PW</label>
+                    <input type="text" name="conf-pass" id="">
+                </div>
+                <div>
+                    <button>Register</button>
+                </div>
+            </form>
+        </div>
+        <div>
+            <div>
+                <h1>Login </h1>
+            </div>
+            <form action="">
+                <div>
+                    <label for="">Email</label>
+                    <input type="text" name="email-login" id="">
+                </div>
+                <div>
+                    <label for="">Password</label>
+                    <input type="Password" name="password-login" id="">
+                </div>
+                <div>
+                    <button>Register</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

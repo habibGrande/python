@@ -13,7 +13,7 @@ def checkout(request):
     total_charge = quantity_from_form * price_from_form
     print("Charging credit card...")
     Order.objects.create(quantity_ordered=quantity_from_form, total_price=total_charge)
-    return redirect("/index")
+    return redirect("/checkoutpage")
 
 def checkoutpage(request):
-    return render(request,'cheackout.html')
+    return render(request,'store/checkout.html')
