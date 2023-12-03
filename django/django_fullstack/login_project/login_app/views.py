@@ -30,10 +30,9 @@ def create_user(request):
 
 def login(request):
     user = Users.objects.get(email=request.POST['email-login'])
-    
+    first_name = user.first_name
     if bcrypt.checkpw(request.POST['password-login'].encode(), user.passowrd.encode()):
-        users_name = Users.objects.all()
-        return render(request,'success.html',users_name)
+        return render(request,'success.html',{'first_name' : first_name })
     else:
         return redirect('/')
 
