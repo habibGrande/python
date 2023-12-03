@@ -17,13 +17,26 @@ def process(request):
 
 def show (request,id):
     book = Book.objects.get(id=id)
+    authors_of_book = book.author.all()
+    all_authors = Author.objects.all()
+    print(authors_of_book)
     context ={
         'id' : book.id,
         'title': book.title,
         'desc' : book.desc,
-        'author': book.author
+        'authors':authors_of_book,
+        'all_authors': all_authors
     }
     return render(request,'books_show.html',context)
+
+
+def add_author(request,id):
+    author_id = request.POST['user']
+    author = Author.objects.get(id = author_id)
+    book = Book.objects.get(id = id)    
+    book.author.add(author)
+    return redirect(f'/books/{id}')
+
 
 def author(request):
     author = Author.objects.all()

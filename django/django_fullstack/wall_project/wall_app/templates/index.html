@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div style="display: flex; justify-content: space-around;">
+        <div>
+            <div>
+                <h1>Registration</h1>
+            </div>
+            <form action="/register" method="post">
+                {% csrf_token %}
+                <div>
+                    <label for="">First Name</label>
+                    <input type="text" name="first_name" id="" style="width: 150px; border: 1.5px solid black;">
+                    {% if messages %}
+                        <ul class="messages">    
+                        {% for message in messages %}  
+                            {% if message.extra_tags == 'first_name' %}  
+                                <li>{{ message }}</li>    
+                            {% endif %}
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </div>
+                <div>
+                    <label for="">Last Name</label>
+                    <input type="text" name="last_name" id="" style="width: 150px; border: 1.5px solid black; margin-top: 20px;">
+                    {% if messages %}
+                    {% for message in messages %}  
+                            {% if message.extra_tags == 'last_name' %}  
+                                <p>{{ message }}</p>    
+                            {% endif %}
+                            {% endfor %}
+                       
+                    {% endif %}
+                </div>
+                <div>
+                    <label for="">Email</label>
+                    <input type="text" name="email" id="" style="width: 150px; border: 1.5px solid black;margin-top: 20px; margin-left: 12.5%;">
+                    {% if messages %}
+                    <ul class="messages">    
+                    {% for message in messages %}  
+                            {% if message.extra_tags == 'email' %}  
+                                <li>{{ message }}</li>    
+                            {% endif %}
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </div>
+                <div>
+                    <label for="">Password</label>
+                    <input type="Password" name="password" id=""style="width: 150px; border: 1.5px solid black;margin-top: 20px;margin-left: 2.5%">
+                    {% if messages %}
+                     
+                    {% for message in messages %}  
+                            {% if message.extra_tags == 'password' %}  
+                            <p>{{ message }}<p>   
+                            {% endif %}
+                            {% endfor %}
+                    {% endif %}
+                </div>
+                <div>
+                    <label for="">Confirm pw</label>
+                    <input type="password" name="conf-pass" id=""style="width: 150px; border: 1.5px solid black;margin-top: 20px;">
+                    {% if messages %}
+                       
+                    {% for message in messages %}  
+                            {% if message.extra_tags == 'conf-pass' %}  
+                                <p>{{ message }}<p>    
+                            {% endif %}
+                            {% endfor %}
+                      
+                    {% endif %}
+                </div>
+                <div>
+                    <button style="border-radius: 0%; box-shadow: 1px 2px 2px black; margin-top: 25px; margin-left: 80px;">Register</button>
+                </div>
+            </form>
+                        
+        </div>
+        <div>
+            <div>
+                <h1>Login </h1>
+            </div>
+            <form action="/login" method="post">
+                {% csrf_token %}
+                <div>
+                    <label for="">Email</label>
+                    <input type="text" name="email-login" id="" style="width: 150px; border: 1.5px solid black;margin-top: 20px;">
+                </div>
+                <div>
+                    <label for="">Password</label>
+                    <input type="Password" name="password-login" id="" style="width: 150px; border: 1.5px solid black;margin-top: 20px;">
+                </div>
+                <div>
+                    <button style="border-radius: 0%; box-shadow: 1px 2px 2px black; margin-top: 25px; margin-left: 80px;">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
