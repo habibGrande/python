@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">  
+
+</head>
+<body>
+    <div>
+        <div class="nav-top">
+            <div class="logo">
+                <h1> Sasquatch Websighting</h1>
+            </div>
+            <div class="nav-side">
+                <p>{{user.firstName}}</p>
+                <form action="/dashboard">
+                    {% csrf_token %}
+                    <button>Dashboard</button>
+                </form>
+            </div>
+        </div>
+        <div class="nav-btm">
+            <div class="rep">
+                <h3>Reported Sightings</h3>
+            </div>
+            <div>
+                <form action="/destroy" method="post">
+                    {% csrf_token %}
+                    <button> < Logout</button>
+                </form>
+            </div>
+
+    </div>
+    <div class="report-form">
+            <form action="/edit" method="post">
+                {% csrf_token %}
+                
+                <div class="forms">
+                
+                    <label>Location:</label>
+                    <input type="text" name="location" value="{{report.location}}">
+                </div>
+                <div class="forms">
+                    <input type="hidden" name="report" value="{{report.id}}">
+                    
+                    <label>Date of Sighting</label>
+                    <input type="date" name="SightDate" value="{{report.date}}">
+                </div>
+                <div class="forms">
+                    <label>Number of Ssaquatches</label>
+                    <input type="number" name="numberSas" value="{{report.numberOfSasq}}">
+                </div>
+                <div id="lable">
+                    <label>What Happened</label>
+                    
+                </div>
+                <div class="forms">
+                    <input type="text" class="description"name="desc" value="{{report.desc}}">
+                </div>
+                <div class="btn-container">
+                    <button>Report</button>
+                </div>
+            </form>
+            {% if messages %}
+            <ul class="messages">    
+                {% for message in messages %}    
+                    <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+                {% endfor %}
+            </ul>
+            {% endif %}
+    </div>
+</body>
+</html>

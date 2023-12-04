@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">    
+</head>
+<body>
+    <div>
+        <div class="nav-top">
+            <div class="logo">
+                <h1> Sasquatch Websighting</h1>
+            </div>
+            <div class="nav-side">
+                <p>{{user.firstName}}</p>
+                <form action="/new">
+                    {% csrf_token %}
+                    <button>report a sighting</button>
+                </form>
+            </div>
+        </div>
+        <div class="nav-btm">
+            <div class="rep">
+                <p>Reported Sightings</p>
+            </div>
+            <div>
+                <form action="/destroy" method="post">
+                    {% csrf_token %}
+                    <button>Logout</button>
+                </form>
+            </div>
+            
+        </div>
+            
+        
+    </div>
+
+   
+        {% for report in reports %}
+        <div class="report">
+            <div class="side-content">
+                
+                    <p>Location: {{report.location}}</p>
+                    <p> Skeptics : {{report.numberOfSasq}}</p>
+                    
+                
+            </div>
+            <div class="report-content">
+
+            
+                <div class="content-report">
+                    <p>Date of sighting : {{report.date}}</p>
+                    <p>Reported by: {{report.user.firstName}} </p>
+                    {% if user.id == report.user.id  %}
+                </div>
+                    <div class="content-report">
+                        <div class="del">
+                        <form action="/edits" method="post">
+                            {% csrf_token %}
+                            <input type="hidden" name="report" value="{{report.id}}">
+                              
+                            <button class="edit">edit</button>
+                        </form>
+                        </div>
+                        <div class="del">
+                        <form action="/delete" method="post">
+                            {% csrf_token %}
+                            <input type="hidden" name="repor" value="{{report.id}}">
+                            <button class="delete">delete</button>
+                        </form>
+                    </div>
+                    </div >
+                        {% else%}
+                        <form action="/show" method="post">
+                            {% csrf_token %}
+                            <input type="hidden" name="viewID" value="{{report.id}}">
+                            <button class="view">view</button>
+                        </form>
+                    {% endif %}
+                </div>
+            </div>
+           
+        </div>
+        {% endfor %} 
+  
+
+
+</body>
+</html>
